@@ -1,8 +1,8 @@
 {
-  "name": "web3-wallet",
+  "name": "wallet-keeper",
   "version": "0.1.0",
   "private": true,
-  "homepage": "https://kitchun0402.github.io/web3-wallet",
+  "homepage": "https://kitchun0402.github.io/wallet-keeper",
   "dependencies": {
     "@testing-library/jest-dom": "^5.17.0",
     "@testing-library/react": "^13.4.0",
