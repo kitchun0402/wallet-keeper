@@ -1,0 +1,12 @@
+{
+  "files": {
+    "main.js": "/web3-wallet/static/js/main.e6b55c7e.js",
+    "static/js/787.cc66958d.chunk.js": "/web3-wallet/static/js/787.cc66958d.chunk.js",
+    "index.html": "/web3-wallet/index.html",
+    "main.e6b55c7e.js.map": "/web3-wallet/static/js/main.e6b55c7e.js.map",
+    "787.cc66958d.chunk.js.map": "/web3-wallet/static/js/787.cc66958d.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/js/main.e6b55c7e.js"
+  ]
+}
