@@ -1,5 +1,5 @@
 import userEvent from '@testing-library/user-event'
-import { render, screen } from '../../../../testUtils'
+import { act, render, screen } from '../../../../testUtils'
 import DropdownMenu from '../DropdownMenu'
 
 const dropdownMenuLabel = 'dropdown menu button'
@@ -31,7 +31,9 @@ describe('DropdownMenu', () => {
       </DropdownMenu>,
     )
     const dropdownMenuElement = screen.getByText(dropdownMenuLabel)
-    userEvent.click(dropdownMenuElement)
+    act(() => {
+      userEvent.click(dropdownMenuElement)
+    })
     const dropdownMenuOptionElement = screen.getByText('mock option')
     expect(dropdownMenuOptionElement).toBeInTheDocument()
   })
@@ -51,10 +53,15 @@ describe('DropdownMenu', () => {
     )
 
     const dropdownMenuElement = screen.getByText(dropdownMenuLabel)
-    userEvent.click(dropdownMenuElement)
+    act(() => {
+      userEvent.click(dropdownMenuElement)
+    })
     const dropdownMenuOptionElement = screen.getByText('mock option')
     expect(dropdownMenuOptionElement).toBeInTheDocument()
-    userEvent.click(dropdownMenuElement)
+
+    act(() => {
+      userEvent.click(dropdownMenuElement)
+    })
     expect(screen.queryByText('mock option')).not.toBeInTheDocument()
   })
 
@@ -72,9 +79,13 @@ describe('DropdownMenu', () => {
     )
 
     const dropdownMenuElement = screen.getByText(dropdownMenuLabel)
-    userEvent.click(dropdownMenuElement)
+    act(() => {
+      userEvent.click(dropdownMenuElement)
+    })
     const dropdownMenuOptionElement = screen.getByText('mock option')
-    userEvent.click(dropdownMenuOptionElement)
+    act(() => {
+      userEvent.click(dropdownMenuOptionElement)
+    })
     expect(mockOnSelectOption).toBeCalledWith('mock option')
   })
 })

@@ -1,5 +1,5 @@
 import userEvent from '@testing-library/user-event'
-import { render, screen } from '../../../../testUtils'
+import { act, render, screen } from '../../../../testUtils'
 import { getShortenedAddress } from '../../../../utils/getShortenedAddress'
 import WalletCard from '../WalletCard'
 
@@ -31,7 +31,9 @@ describe('WalletCard', () => {
     )
 
     const showPrivateKeyBtn = screen.getByTestId('show-private-key-btn')
-    userEvent.click(showPrivateKeyBtn)
+    act(() => {
+      userEvent.click(showPrivateKeyBtn)
+    })
     const modalTitle = screen.getByText('Show private key')
     expect(modalTitle).toBeInTheDocument()
     const walletAddress = screen.getByTestId('password-modal-address-card')
