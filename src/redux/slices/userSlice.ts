@@ -14,18 +14,15 @@ const userSlice = createSlice({
   reducers: {
     addAWallet: (state, action: PayloadAction<{ password: string }>) => {
       const wallet = ethers.Wallet.createRandom()
-      console.log(action.payload.password)
-      if (wallet) {
-        // Get the private key and address
-        const privateKey = wallet?.privateKey
-        const address = wallet?.address
+      // Get the private key and address
+      const privateKey = wallet?.privateKey
+      const address = wallet?.address
 
-        const newWallet: WalletBasicInfo = {
-          address,
-          hashedPrivateKey: privateKey,
-        }
-        state.wallets.push(newWallet)
+      const newWallet: WalletBasicInfo = {
+        address,
+        hashedPrivateKey: privateKey,
       }
+      state.wallets.push(newWallet)
     },
   },
 })
