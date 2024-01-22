@@ -1,12 +1,13 @@
 import { combineReducers, configureStore } from '@reduxjs/toolkit'
 import { persistReducer, persistStore } from 'redux-persist'
 import storage from 'redux-persist/lib/storage' // defaults to localStorage for web
+import { NETWORK_SLICE_NAME, USER_SLICE_NAME } from '../constants/redux'
 import networkReducer from './slices/networkSlice'
 import userReducer from './slices/userSlice'
 const persistConfig = {
   key: 'wallet-keeper',
   storage,
-  whitelist: ['user'],
+  whitelist: [USER_SLICE_NAME, NETWORK_SLICE_NAME],
 }
 
 const reducers = combineReducers({

@@ -1,6 +1,7 @@
 import { createSlice, type PayloadAction } from '@reduxjs/toolkit'
 import { ethers } from 'ethers'
 import { availableNetworks, defaultNetworkId } from '../../configs/network'
+import { NETWORK_SLICE_NAME } from '../../constants/redux'
 import { type NetworkId } from '../../types/network'
 
 interface NetworkState {
@@ -14,7 +15,7 @@ const initialState: NetworkState = {
   ),
 }
 const networkSlice = createSlice({
-  name: 'network',
+  name: NETWORK_SLICE_NAME,
   initialState,
   reducers: {
     changeNetwork: (state, action: PayloadAction<{ networkId: NetworkId }>) => {

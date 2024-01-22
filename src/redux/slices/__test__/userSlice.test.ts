@@ -1,4 +1,4 @@
-import reducer, { addAWallet } from './userSlice'
+import reducer, { addAWallet } from '../userSlice'
 
 describe('userSlice', () => {
   describe('addAWallet', () => {
@@ -10,7 +10,7 @@ describe('userSlice', () => {
       const newState = reducer(initialState, addAWallet({ password }))
       expect(newState.wallets).toHaveLength(1)
       expect(newState.wallets[0].address).toBeDefined()
-      expect(newState.wallets[0].hashedPrivateKey).toBeDefined()
+      expect(newState.wallets[0].encryptedPrivateKey).toBeDefined()
     })
   })
 })
