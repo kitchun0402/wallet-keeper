@@ -23,7 +23,7 @@ function WalletCardsContainer() {
         setWalletBalances(balances)
       } catch (error) {
         // should handle errors
-        console.log(error)
+        console.error(error)
       }
     }
     void getData()
@@ -42,7 +42,6 @@ function WalletCardsContainer() {
               key={wallet.address}
               address={wallet.address}
               balance={walletBalances[index] || '-'}
-              onShowPrivateKeyClick={() => {}}
             />
           )
         })
