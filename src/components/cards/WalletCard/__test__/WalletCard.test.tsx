@@ -25,20 +25,16 @@ describe('WalletCard', () => {
     expect(walletBalance).toBeInTheDocument()
   })
 
-  it('should call the onShowPrivateKeyClick function when the showPrivateKeyBtn is clicked', () => {
-    const onShowPrivateKeyClick = jest.fn()
-
+  it('should show the modal when the showPrivateKeyBtn is clicked', () => {
     render(
-      <WalletCard
-        address={walletData.address}
-        balance={walletData.balance}
-        onShowPrivateKeyClick={onShowPrivateKeyClick}
-      />,
+      <WalletCard address={walletData.address} balance={walletData.balance} />,
     )
 
     const showPrivateKeyBtn = screen.getByTestId('show-private-key-btn')
     userEvent.click(showPrivateKeyBtn)
-
-    expect(onShowPrivateKeyClick).toHaveBeenCalledTimes(1)
+    const modalTitle = screen.getByText('Show private key')
+    expect(modalTitle).toBeInTheDocument()
+    const walletAddress = screen.getByTestId('password-modal-address-card')
+    expect(walletAddress).toBeInTheDocument()
   })
 })

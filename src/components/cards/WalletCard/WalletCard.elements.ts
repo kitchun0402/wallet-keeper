@@ -8,7 +8,6 @@ export const Container = styled.div`
     align-items: flex-start;
     justify-content: center;
     padding: 8px 24px;
-
     &:before {
       content: '';
       position: absolute;
@@ -24,4 +23,13 @@ export const AddressContainer = styled.div`
   display: flex;
   flex-direction: row;
   align-items: center;
+`
+
+export const PrivateKeyText = styled.p`
+  ${({ theme }) => css`
+    word-break: break-all;
+    border: 1px solid ${theme.palette.primary.main};
+    margin: 1em 0;
+    padding: 0.8em;
+  `}
 `
