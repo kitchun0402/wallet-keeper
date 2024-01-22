@@ -11,15 +11,15 @@ import DropdownMenuContextProvider, {
 
 type Props = {
   label: string
-  onOptionsChange: (option: string) => void
+  onSelectOption: (option: string) => void
 } & ComponentProps<'div'>
 
-function DropdownMenu({ children, label, onOptionsChange, ...props }: Props) {
+function DropdownMenu({ children, label, onSelectOption, ...props }: Props) {
   const [currentOption, setCurrentOption] = useState('')
   const [isMenuOpen, setIsMenuOpen] = useState(false)
   const updateCurrentOption = (option: string) => {
     setCurrentOption(option)
-    onOptionsChange(option)
+    onSelectOption(option)
   }
   const toggleMenu = () => {
     setIsMenuOpen((prev) => !prev)
@@ -34,8 +34,10 @@ function DropdownMenu({ children, label, onOptionsChange, ...props }: Props) {
         toggleMenu,
       }}
     >
-      <Container {...props}>
-        <MenuButton onClick={toggleMenu}>{label}</MenuButton>
+      <Container>
+        <MenuButton onClick={toggleMenu} {...props}>
+          {label}
+        </MenuButton>
         {isMenuOpen && <Options>{children}</Options>}
       </Container>
     </DropdownMenuContextProvider>
