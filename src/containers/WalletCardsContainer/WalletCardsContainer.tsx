@@ -42,6 +42,7 @@ function WalletCardsContainer() {
               key={wallet.address}
               address={wallet.address}
               balance={walletBalances[index] || '-'}
+              onShowPrivateKeyClick={() => {}}
             />
           )
         })

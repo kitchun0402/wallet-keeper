@@ -42,7 +42,7 @@ describe('AddNewWalletButton', () => {
     const button = screen.getByText('Add new wallet')
     userEvent.click(button)
     const passwordInput = screen.getByTestId('password-input')
-    userEvent.type(passwordInput, '')
+    userEvent.type(passwordInput, ' ')
     const confirmButton = screen.getByText('Confirm')
     userEvent.click(confirmButton)
     const errorMessage = screen.getByText('Password cannot be empty')
