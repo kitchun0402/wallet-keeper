@@ -20,6 +20,7 @@ export const ModalContent = styled.div`
   border-radius: 4px;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
   margin: 20px;
+  width: 100%;
 `
 
 export const ModalHeader = styled.div`
