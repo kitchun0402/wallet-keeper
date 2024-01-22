@@ -1,5 +1,7 @@
 import Button from '../../buttons/Button/Button'
-import TextField from '../../inputs/TextField/TextField'
+import TextField, {
+  type TextFieldProps,
+} from '../../inputs/TextField/TextField'
 import Modal, { type ModalProps } from '../Modal/Modal'
 import { ButtonGroup } from './PasswordModal.elements'
 
@@ -8,6 +10,7 @@ type Props = {
   onPasswordInputChange: (password: string) => void
   onCloseModal: () => void
   onClickConfirmButton: () => void
+  passwordInputValidationProps?: TextFieldProps['validationProps']
 } & ModalProps
 
 function PasswordModal({
@@ -15,6 +18,7 @@ function PasswordModal({
   onPasswordInputChange,
   onCloseModal,
   onClickConfirmButton,
+  passwordInputValidationProps,
   ...props
 }: Props) {
   return (
@@ -25,6 +29,7 @@ function PasswordModal({
         type="password"
         value={passwordInput}
         onChange={(e) => onPasswordInputChange(e.target.value)}
+        validationProps={passwordInputValidationProps}
       />
       <ButtonGroup>
         <Button variant="text" onClick={onCloseModal}>
