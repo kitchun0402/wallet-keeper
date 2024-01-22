@@ -3,7 +3,7 @@ import styled, { css } from 'styled-components'
 export const Container = styled.main`
   ${({ theme }) => css`
     position: absolute;
-    width: fit-content;
+    width: 300px;
     left: 50%;
     top: 50%;
     transform: translate(-50%, -50%);
