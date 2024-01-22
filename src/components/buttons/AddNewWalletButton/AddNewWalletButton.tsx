@@ -34,7 +34,7 @@ function AddNewWalletButton() {
         onCloseModal={handleCloseModal}
         onPasswordInputChange={(value) => setPasswordInput(value)}
         passwordInputValidationProps={{
-          isValid: inputErrorMessage === '',
+          isValid: !inputErrorMessage,
           errorMessage: inputErrorMessage,
         }}
       />
