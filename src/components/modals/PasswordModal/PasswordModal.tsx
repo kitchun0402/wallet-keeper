@@ -19,10 +19,12 @@ function PasswordModal({
   onCloseModal,
   onClickConfirmButton,
   passwordInputValidationProps,
+  children,
   ...props
 }: Props) {
   return (
     <Modal {...props}>
+      {children}
       <TextField
         data-testid="password-input"
         label="Enter your password"
