@@ -1,5 +1,7 @@
+import WalletKeeper from './containers/WalletKeeper/WalletKeeper'
+
 function App() {
-  return <div className="App">Hello World!!!</div>
+  return <WalletKeeper />
 }
 
 export default App
