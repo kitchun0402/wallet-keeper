@@ -18,3 +18,9 @@ export const StyledInput = styled.input`
 export const StyledLabel = styled.label`
   font-size: 0.8rem;
 `
+
+export const ErrorMessage = styled.p`
+  color: red;
+  font-size: 0.8rem;
+  margin: 0.5em 0;
+`

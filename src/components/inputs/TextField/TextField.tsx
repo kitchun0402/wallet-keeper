@@ -1,15 +1,22 @@
 import { type ComponentProps } from 'react'
-import { StyledInput, StyledLabel } from './TextField.elements'
+import { ErrorMessage, StyledInput, StyledLabel } from './TextField.elements'
 
-type Props = {
+export type TextFieldProps = {
   label: string
+  validationProps?: {
+    isValid: boolean
+    errorMessage: string
+  }
 } & ComponentProps<'input'>
 
-function TextField({ label, ...props }: Props) {
+function TextField({ label, validationProps, ...props }: TextFieldProps) {
   return (
     <>
       <StyledLabel>{label}</StyledLabel>
-      <StyledInput {...props}></StyledInput>
+      <StyledInput {...props} />
+      {!validationProps?.isValid && validationProps?.errorMessage && (
+        <ErrorMessage>{validationProps.errorMessage}</ErrorMessage>
+      )}
     </>
   )
 }

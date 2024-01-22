@@ -15,4 +15,15 @@ describe('TextField', () => {
     const inputElement = screen.getByPlaceholderText(placeholder)
     expect(inputElement).toBeInTheDocument()
   })
+
+  it('should render error message correctly', () => {
+    render(
+      <TextField
+        label="Username"
+        validationProps={{ isValid: false, errorMessage: 'error message' }}
+      />,
+    )
+    const errorMessage = screen.getByText('error message')
+    expect(errorMessage).toBeInTheDocument()
+  })
 })
