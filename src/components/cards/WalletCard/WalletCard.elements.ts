@@ -1,13 +1,23 @@
-import styled from 'styled-components'
+import styled, { css } from 'styled-components'
 
 export const Container = styled.div`
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-  justify-content: center;
-  border: 1px solid #e1dbd5;
-  padding: 8px 24px;
-  border-radius: 8px;
+  ${({ theme }) => css`
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: center;
+    padding: 8px 24px;
+
+    &:before {
+      content: '';
+      position: absolute;
+      left: 0;
+      height: 50%;
+      width: 2px;
+      background-color: ${theme.palette.primary.main};
+    }
+  `};
 `
 
 export const AddressContainer = styled.div`

@@ -1,4 +1,6 @@
 import { type ComponentProps } from 'react'
+import { availableNetworks } from '../../../configs/network'
+import { useAppSelector } from '../../../hooks/redux'
 import { getShortenedAddress } from '../../../utils/getShortenedAddress'
 import IconButton from '../../buttons/IconButton/IconButton'
 import CopyIcon from '../../icons/CopyIcon'
@@ -17,6 +19,9 @@ function WalletCard({
   onShowPrivateKeyClick,
   ...props
 }: Props) {
+  const networkId = useAppSelector((state) => state.network.currentNetworkId)
+  const tokenSymbol = availableNetworks[networkId].tokenSymbol
+
   const copyAddress = async () => {
     await window.navigator.clipboard.writeText(address)
   }
@@ -33,7 +38,9 @@ function WalletCard({
           />
         )}
       </AddressContainer>
-      <h5>Balance: {balance} AVAX</h5>
+      <h5>
+        Balance: {balance} {tokenSymbol}
+      </h5>
     </Container>
   )
 }
