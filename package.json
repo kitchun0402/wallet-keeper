@@ -27,6 +27,7 @@
     "build": "react-scripts build",
     "test": "react-scripts test --passWithNoTests",
     "test:staged": "yarn test --findRelatedTests",
+    "test:coverage": "yarn test --coverage --watchAll",
     "eject": "react-scripts eject",
     "predeploy": "npm run build",
     "deploy": "gh-pages -d build",
@@ -48,6 +49,26 @@
       "eslint --max-warnings=0",
       "prettier --write"
     ]
+  },
+  "jest": {
+    "collectCoverageFrom": [
+      "src/**/*.{ts,tsx}",
+      "!src/reportWebVitals.ts",
+      "!src/setupTests.ts",
+      "!src/index.tsx",
+      "!src/**/*.d.{ts,js,tsx,jsx}",
+      "!src/**/*.elements.{ts,js,tsx,jsx}",
+      "!src/{configs,types,assets}/**/*",
+      "!src/components/icons/**/*",
+      "!src/theme/globalStyles.ts"
+    ],
+    "coverageThreshold": {
+      "global": {
+        "branches": 70,
+        "functions": 70,
+        "lines": 70
+      }
+    }
   },
   "browserslist": {
     "production": [
