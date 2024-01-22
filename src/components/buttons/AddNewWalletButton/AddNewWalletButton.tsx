@@ -7,13 +7,19 @@ import Button from '../Button/Button'
 function AddNewWalletButton() {
   const [isModalOpen, setIsModalOpen] = useState(false)
   const [passwordInput, setPasswordInput] = useState('')
+  const [inputErrorMessage, setInputErrorMessage] = useState('')
   const dispatch = useAppDispatch()
   const handleCloseModal = () => {
     setIsModalOpen(false)
     setPasswordInput('')
+    setInputErrorMessage('')
   }
+
   const handleAddNewWallet = () => {
-    if (passwordInput.trim() === '') return
+    if (passwordInput.trim() === '') {
+      setInputErrorMessage('Password cannot be empty')
+      return
+    }
     dispatch(addAWallet({ password: passwordInput }))
     handleCloseModal()
   }
@@ -27,6 +33,10 @@ function AddNewWalletButton() {
         onClickConfirmButton={handleAddNewWallet}
         onCloseModal={handleCloseModal}
         onPasswordInputChange={(value) => setPasswordInput(value)}
+        passwordInputValidationProps={{
+          isValid: inputErrorMessage === '',
+          errorMessage: inputErrorMessage,
+        }}
       />
     </>
   )
