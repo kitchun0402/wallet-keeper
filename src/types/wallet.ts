@@ -1,4 +1,4 @@
 export type WalletBasicInfo = {
   address: string
-  hashedPrivateKey: string
+  encryptedPrivateKey: string
 }
