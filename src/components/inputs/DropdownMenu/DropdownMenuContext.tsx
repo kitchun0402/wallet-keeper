@@ -8,7 +8,9 @@ type Context = {
 }
 const initialContext = {
   currentOption: '',
-  updateCurrentOption: (option: string) => {},
+  updateCurrentOption: (option: string) => {
+    //
+  },
   toggleMenu: () => {},
   isMenuOpen: false,
 }
