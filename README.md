@@ -13,8 +13,8 @@ This project is built with React and styled-components. Reduc, CI/CD, Unit tests
 - **Wallet Generation**
 - **Generated Wallets Overview**
 - **Private Keys Preview With Password Protection**
-- **Wallets' Balances Preview**
-- **Wallets' States Persistence**
+- **Wallet Balances Preview**
+- **State Persistence**
 - **BSC Testnet and Avalanche Fuji Testnet Support**
 
 ## Prerequisites
