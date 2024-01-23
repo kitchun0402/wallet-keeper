@@ -1,12 +1,12 @@
 {
   "files": {
-    "main.js": "/wallet-keeper/static/js/main.4fa9aced.js",
+    "main.js": "/wallet-keeper/static/js/main.bc05c97c.js",
     "static/js/787.0dec0e01.chunk.js": "/wallet-keeper/static/js/787.0dec0e01.chunk.js",
     "index.html": "/wallet-keeper/index.html",
-    "main.4fa9aced.js.map": "/wallet-keeper/static/js/main.4fa9aced.js.map",
+    "main.bc05c97c.js.map": "/wallet-keeper/static/js/main.bc05c97c.js.map",
     "787.0dec0e01.chunk.js.map": "/wallet-keeper/static/js/787.0dec0e01.chunk.js.map"
   },
   "entrypoints": [
-    "static/js/main.4fa9aced.js"
+    "static/js/main.bc05c97c.js"
   ]
 }
