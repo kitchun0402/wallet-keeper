@@ -19,6 +19,9 @@ function WalletCard({ address, balance, ...props }: Props) {
     state.user.wallets.find((wallet) => wallet.address === address),
   )
   const [inputErrorMessage, setInputErrorMessage] = useState('')
+  const networkId = useAppSelector((state) => state.network.currentNetworkId)
+  const tokenSymbol = availableNetworks[networkId].tokenSymbol
+
   const handleCloseModal = () => {
     setIsModalOpen(false)
     clearInputs()
@@ -47,8 +50,6 @@ function WalletCard({ address, balance, ...props }: Props) {
     setRecoveredPrivateKey(decryptedPrivateKey)
     clearInputs()
   }
-  const networkId = useAppSelector((state) => state.network.currentNetworkId)
-  const tokenSymbol = availableNetworks[networkId].tokenSymbol
 
   return (
     <Container {...props}>
