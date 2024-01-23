@@ -1,43 +1,18 @@
-import { useEffect, useState } from 'react'
 import WalletCard from '../../components/cards/WalletCard/WalletCard'
-import { useAppSelector } from '../../hooks/redux'
-import { getWalletBalances } from '../../utils/getWalletBalances'
+import useWalletBalances from '../../hooks/useWalletBalances'
 import { Container } from './WalletCardsContainer.elements'
 
 function WalletCardsContainer() {
-  const walletList = useAppSelector((state) => state.user.wallets)
-  const { readOnlyProvider, currentNetworkId } = useAppSelector(
-    (state) => state.network,
-  )
-  const [walletBalances, setWalletBalances] = useState<string[]>([])
-
-  // get wallet balances
-  useEffect(() => {
-    const getData = async () => {
-      try {
-        const balances = await getWalletBalances(
-          currentNetworkId,
-          readOnlyProvider,
-          walletList.map((wallet) => wallet.address),
-        )
-
-        setWalletBalances(balances)
-      } catch (error) {
-        // should handle errors
-        console.error(error)
-      }
-    }
-    void getData()
-  }, [currentNetworkId, readOnlyProvider, walletList])
+  const { wallets, balances } = useWalletBalances()
   return (
     <Container>
-      {walletList.length > 0 ? (
-        walletList.map((wallet, index) => {
+      {wallets.length > 0 ? (
+        wallets.map((wallet, index) => {
           return (
             <WalletCard
               key={wallet.address}
               address={wallet.address}
-              balance={walletBalances[index] || '-'}
+              balance={balances[index] || '-'}
             />
           )
         })
