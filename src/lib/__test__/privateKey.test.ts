@@ -9,3 +9,17 @@ describe('encryptPrivateKey', () => {
     expect(decryptedPrivateKey).toEqual(privateKey)
   })
 })
+
+describe('decryptPrivateKey', () => {
+  it('should return a falsy value with a wrong password', () => {
+    const privateKey = 'myPrivateKey'
+    const password = 'myPassword'
+    const wrongPassword = 'wrongPassword'
+    const encryptedPrivateKey = encryptPrivateKey(privateKey, password)
+    const decryptedPrivateKey = decryptPrivateKey(
+      encryptedPrivateKey,
+      wrongPassword,
+    )
+    expect(decryptedPrivateKey).toBeFalsy()
+  })
+})
