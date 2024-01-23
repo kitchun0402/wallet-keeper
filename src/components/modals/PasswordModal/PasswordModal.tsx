@@ -26,6 +26,7 @@ function PasswordModal({
     <Modal {...props}>
       {children}
       <TextField
+        name="password"
         data-testid="password-input"
         label="Enter your password"
         type="password"

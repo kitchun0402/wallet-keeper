@@ -52,7 +52,7 @@ function WalletCard({ address, balance, ...props }: Props) {
   }
 
   return (
-    <Container {...props}>
+    <Container data-testid="wallet-card" {...props}>
       <AddressCard
         address={address}
         onShowPrivateKeyClick={() => setIsModalOpen(true)}
@@ -77,7 +77,9 @@ function WalletCard({ address, balance, ...props }: Props) {
           address={address}
         />
         {recoveredPrivateKey && (
-          <PrivateKeyText>{recoveredPrivateKey}</PrivateKeyText>
+          <PrivateKeyText data-testid="password-modal-private-key">
+            {recoveredPrivateKey}
+          </PrivateKeyText>
         )}
       </PasswordModal>
     </Container>
