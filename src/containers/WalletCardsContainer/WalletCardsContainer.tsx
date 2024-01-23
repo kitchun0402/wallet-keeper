@@ -20,6 +20,7 @@ function WalletCardsContainer() {
           readOnlyProvider,
           walletList.map((wallet) => wallet.address),
         )
+
         setWalletBalances(balances)
       } catch (error) {
         // should handle errors
@@ -27,12 +28,7 @@ function WalletCardsContainer() {
       }
     }
     void getData()
-
-    return () => {
-      return setWalletBalances([])
-    }
   }, [currentNetworkId, readOnlyProvider, walletList])
-
   return (
     <Container>
       {walletList.length > 0 ? (
