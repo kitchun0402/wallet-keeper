@@ -1,6 +1,6 @@
 # Wallet Keeper
 
-This project is built with React and styled-components. Reduc, CI/CD, Unit tests and E2E tests are covered.
+This project is built with React and styled-components. Redux, CI/CD, Unit tests and E2E tests are covered.
 
 ## Table of Content
 
